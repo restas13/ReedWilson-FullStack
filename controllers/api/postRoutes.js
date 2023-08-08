@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
+// for updating a post
 router.put('/:id', withAuth, async (req, res) => {
     try {
         const [affected] = await Post.update(req.body, {
@@ -21,6 +22,7 @@ router.put('/:id', withAuth, async (req, res) => {
     }
 });
 
+// For adding a post
 router.post('/', withAuth, async (req, res) => {
     const body = req.body;
 
